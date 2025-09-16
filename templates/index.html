@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Home - Book Recommender{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <h1 class="mb-4">🔥 Top 50 Books</h1>
+  <div class="row d-flex flex-wrap">
+    {% for i in range(book_name|length) %}
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card h-100">
+          <img src="{{ image[i] }}" class="card-img-top">
+          <div class="card-body">
+            <h5 class="text-white">{{ book_name[i] }}</h5>
+            <p class="text-muted">{{ author[i] }}</p>
+            <p class="text-info">Votes: {{ votes[i] }}</p>
+            <p class="text-warning">⭐ {{ rating[i] }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+

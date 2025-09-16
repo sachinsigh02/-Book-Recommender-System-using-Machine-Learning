@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Book Recommender{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #0f0f0f;
+      color: #eaeaea;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar {
+      background: linear-gradient(90deg, #ff7a18, #af002d 70%);
+    }
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+    }
+    .nav-link:hover {
+      color: #ffe082 !important;
+    }
+    .card {
+      background: #e6433d;
+      border: none;
+      border-radius: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(244, 131, 47, 0.4);
+    }
+    .card img {
+      height: 220px;
+      object-fit: cover;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+    h1 {
+      font-size: 42px;
+      font-weight: 700;
+      color: #ffb74d;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">📚 Book Recommender</a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/recommend">Recommend</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Flash messages -->
+  <div class="container mt-3">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-info">
+          {{ messages[0] }}
+        </div>
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <!-- Page Content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-amber-300 text-light py-4 mt-5 border-top border-secondary">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>📚 Book Recommender</h5>
+          <p>Find your next favorite book with our recommendation system.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <h5>📞 Contact Us</h5>
+          <p>Email: sachin1217050@gmail.com</p>
+          <p>Phone: 9507832769</p>
+          <p>Address: 123 Library Street, Knowledge City</p>
+        </div>
+      </div>
+      <hr class="bg-secondary">
+      <p class="text-center mb-0">© 2025 Book Recommender | All Rights Reserved</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+
